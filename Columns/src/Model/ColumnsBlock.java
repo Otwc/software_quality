@@ -112,21 +112,4 @@ public class ColumnsBlock {
 
 	public void isVisible(boolean b) {visible = b;}
     public boolean isVisible() {return visible;}
-
-    /*
-    Due to true MVC i removed column block drawing routine into ColumnPanel class
-	public void drawBlock(Graphics g) {
-		if (!visible) return;
-
-		for (int i=0; i < BLOCKHEIGHT; i++) {
-			g.setColor(IColumns.COLORS[BLOCKCOLORS[i]]);
-			g.fillRect(xPos * IColumns.CELLSIZE, yPos * IColumns.CELLSIZE + IColumns.CELLSIZE * i,
-					IColumns.CELLSIZE, IColumns.CELLSIZE);
-			g.setColor(Color.BLACK);
-			g.drawRect(xPos * IColumns.CELLSIZE, yPos * IColumns.CELLSIZE + IColumns.CELLSIZE * i,
-					IColumns.CELLSIZE-1, IColumns.CELLSIZE-1);
-		}
-	}
-	*/
-
 }

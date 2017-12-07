@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ColumnsController;
+import Controller.StateMachine.*;
 import Model.ColumnsGame;
 import Model.IColumns;
 
@@ -19,7 +20,6 @@ public class ColumnsFrame extends JFrame implements IColumnsView {
 			INSTANCE = new ColumnsFrame();
 		}
 		return INSTANCE;
-		
 	}
 	
     private ColumnPanel canvas;
@@ -27,7 +27,6 @@ public class ColumnsFrame extends JFrame implements IColumnsView {
 
     JLabel lblScoreInfo = new JLabel("Score: ");
     JLabel lblScore = new JLabel("0");
-
 
     		private ColumnsFrame() {
         super("Columns");
@@ -91,10 +90,18 @@ public class ColumnsFrame extends JFrame implements IColumnsView {
 			public void run() {
 				ColumnsFrame.getInstance().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				ColumnsFrame.getInstance().setVisible(true);
-				
+				Context context = new Context();
+				MenuState menuState = new MenuState();
+
+				menuState.doAction(context);
+			    System.out.println(context.getState().toString());
+			    StopState stopState = new StopState();
+			    stopState.doAction(context);
+			    System.out.println(context.getState().toString());
+
 				/*
 				 * 
-				 *  Context context = new Context();
+				 *  
 
       StartState startState = new StartState();
       startState.doAction(context);
